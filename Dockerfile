@@ -1,7 +1,9 @@
 FROM ghcr.io/userver-framework/ubuntu-22.04-userver:latest AS builder
 
 WORKDIR /app
-COPY . .
+COPY src/ src/
+COPY configs/ configs/
+COPY CMakeLists.txt .
 
 RUN export CCACHE_DISABLE=1 && \
     mkdir build && cd build && \
